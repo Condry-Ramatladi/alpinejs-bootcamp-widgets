@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BootCamp Functions</title>
+    <script src="BootCampF.js" defer></script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <link rel="stylesheet" href="simple-grid.css">
+    <style>
+
+        body{
+            background-color: lightgreen;
+        }
+
+        .usage{
+            margin-right: 1em;
+        }
+        .cost{
+            margin-right: 0.4em;
+            margin-bottom: 1em;
+        }
+        .usagei{
+            margin-bottom: 1em;
+            margin-top: 1em;
+        }
+
+        .col-4{
+            background-color: bisque;
+            height: 20em;
+            border-radius: 1em;
+        
+        }
+
+        .col-8{
+            background-color: blanchedalmond;
+            border-radius: 1em;
+            padding-bottom: 2em;
+        }
+        
+        .phone{
+            margin-bottom: 2em;
+           
+        }
+
+    </style>
+</head>
+
+<body>
+    <div x-data="AlpineWidget" class="container">
+        <div class="row">
+
+            <div class="col-4 phoneC">
+                <h2>Greet Function</h2>
+                <div x-text="greet_m"></div>
+                <label for="greet">Please enter name: </label>
+                <input type="text" id="greet" x-model="name"> 
+                <button @click="greet">Greet Here</button>   
+            </div>
+
+            <div class="col-4">
+                <h2>Enough Airtime</h2>
+                <label class="cost" for="airtime">Enter Airtime: </label>
+                <input type="text" id="airtime" x-model="cost">
+                <label class="usage" for="usage">Enter Usage:</label>
+                <input class="usagei" type="text" id="usage" x-model="usage">
+                <div><button @click="enoughAirtime(usage, cost)">Check Balance</button>
+                :<span class="balance" x-text="balanceAirtime"></span></div>
+
+
+            </div>
+            
+            <div class="col-4">
+                <h2>Word Game</h2>
+                <label for="word">Enter Sentence: </label>
+                <input type="text" id="word" x-model="sent">
+                <button @click="wordGame(sent)">Play</button>
+                <div>Longest Word: <strong><span x-text="longWord"></span></strong> </div>
+                <div>Shortest Word: <strong><span x-text="shortWord"></span></strong></div>
+                <div>The length of sentence is: <strong><span x-text="sumWord"></span></strong></div>
+    
+            </div>
+        </div>
+
+
+        <div class="row" style="text-align:center;">
+            <div class="col-2"></div>
+
+            <div class="col-8">
+                <h2 >Total Phone Bill</h2>
+                <div class="phone">
+                    <span>
+                        <label for="usage">Enter Usage:</label>
+                        <input  type="text" id="usage" x-model="phoneData">
+                    </span>
+                </div>
+                
+                <div><button @click="totalPhoneBill(phoneData)">Get your Bill</button></div>
+                <div x-text="phoneBill"></div>
+            </div>
+
+            <div class="col-2"></div>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
